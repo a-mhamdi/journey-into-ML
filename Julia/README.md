@@ -1,2 +1,2 @@
-![Julia](Julia.png)
+![Julia](Julia.ico)
 
