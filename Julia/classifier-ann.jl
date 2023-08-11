@@ -2,6 +2,11 @@
 #= BINARY CLASSIFIER USING ANN _(CHURN MODELLING)_ =#
 #####################################################
 
+#= Activate `Venv` =#
+cd(@__DIR__)
+using Pkg
+Pkg.activate("Venv/.")
+
 using Markdown
 
 md"Import the required librairies"

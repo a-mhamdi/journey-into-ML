@@ -1,3 +1,8 @@
+#= Activate `Venv` =#
+cd(@__DIR__)
+using Pkg
+Pkg.activate("Venv/.")
+
 using CUDA
 using LinearAlgebra
 using Random

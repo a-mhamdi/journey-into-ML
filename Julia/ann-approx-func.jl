@@ -2,6 +2,11 @@
 #= ANN APPROXIMATER OF LINEAR FUNCTION `y = f(x) = αx+β` =#
 ###########################################################
 
+#= Activate `Venv` =#
+cd(@__DIR__)
+using Pkg
+Pkg.activate("Venv/.")
+
 using Markdown
 
 md"Import the `Zygote` and `Flux` librairies."
