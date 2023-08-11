@@ -1,3 +1,9 @@
+#= Activate `Venv` =#
+cd(@__DIR__)
+using Pkg
+Pkg.activate("Venv/.")
+
+#= Load `MLJ` package =#
 using MLJ
 X, _ = make_blobs(1_000, 7; centers=5, cluster_std=[1., 1., 1., 1., 1.], as_table=false)
 
