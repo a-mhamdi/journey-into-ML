@@ -10,9 +10,9 @@ For reference, I put, inside the folder _RUN-THROUGH_, screenshots of algorithms
 
 **Useful GUI tools**
 
-- [visualpython.ai/](https://www.visualpython.ai/)
-- [drawdata.xyz/](https://www.drawdata.xyz/)
-- [trymito.io/](https://www.trymito.io/)
+- [visualpython.ai/](https://visualpython.ai/)
+- [drawdata.xyz/](https://drawdata.xyz/)
+- [trymito.io/](https://trymito.io/)
 - [pivottable.js.org/](https://pivottable.js.org/)
 - [gigasheet.com/](https://gigasheet.com/)
 - [github.com/Kanaries/pygwalker/](https://github.com/Kanaries/pygwalker/)
