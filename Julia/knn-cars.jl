@@ -1,3 +1,7 @@
+cd(@__DIR__)
+using Pkg
+Pkg.activate("Venv/.")
+
 using StatsBase
 
 ## Horsepower
@@ -36,7 +40,7 @@ data_3 = MLJ.transform(sc, df_c)
 obs = [220 7.2 24 1400]
 obsn = [(220-uhp)/shp (7.2-ua)/sa (24-umpg)/smpg (1400-uweight)/sweight]
 
-@info "Can Be Done Also As: `obsn = MLJ.transform(sc, DataFrame(obs, names(df)))`"
+@info "Can Be Done Also: `obsn = MLJ.transform(sc, DataFrame(obs, names(df)))`"
 
 dist = round.(sqrt.(sum((obsn .- hcat(data_1.hp, data_1.a, data_1.mpg, data_1.weight)).^2, dims=2)), digits=2)
 
