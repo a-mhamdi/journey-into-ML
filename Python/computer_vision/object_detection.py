@@ -1,3 +1,4 @@
+#! python
     
 import torch
 import cv2
@@ -5,8 +6,7 @@ import ultralytics
 ultralytics.checks()
 
 
-detector = ultralytics.YOLO('yolov8n.pt')  # initializes model
-segmentor = ultralytics.YOLO('yolov8n-seg.pt')  # initializes model
+model = ultralytics.YOLO('yolov8n.pt')  # initializes model
 
 # Path to the video file or integer for webcam
 video_source = 0  # Use 0 for webcam
@@ -20,7 +20,7 @@ while cap.isOpened():
         break
 
     # Perform inference
-    result = detector.predict(frame, classes=0)[0]
+    result = model.predict(frame)[0]
     
     # Extract data from the results
     detections = result.boxes
@@ -31,7 +31,7 @@ while cap.isOpened():
 
         
         # Draw bounding boxes and labels on the frame
-        label = f'{detector.names[obj]} {conf:.2f}'
+        label = f'{model.names[obj]} {conf:.2f}'
         color = (obj*10 & 0xFF, (255-10*obj) & 0xFF, 0)
         cv2.rectangle(frame, (int(xyxy[0]), int(xyxy[1])), (int(
             xyxy[2]), int(xyxy[3])), color, 2)
