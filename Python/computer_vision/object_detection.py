@@ -14,6 +14,7 @@ video_source = 0  # Use 0 for webcam
 # Initialize video capture
 cap = cv2.VideoCapture(video_source)
 
+win_title = 'YOLOv8 Object Detection'
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
@@ -39,7 +40,6 @@ while cap.isOpened():
             xyxy[1])-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
             
         # Show the frame
-        win_title = 'YOLOv5 Object Detection'
         cv2.imshow(win_title, frame)
 
     key = cv2.waitKey(1) & 0xFF
