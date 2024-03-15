@@ -1,5 +1,7 @@
+# %%
 import cv2
 
+# %%
 class Stream:
     def __init__(self, width, height):
         self.width = width
@@ -27,10 +29,10 @@ class Stream:
         else:
             raise Exception("Could not read frame")
 
-
+# %%
 running_cam = Stream(width=1024, height=512)
 
-
+# %%
 while True:
     try:
         current_frame = running_cam.update()
@@ -46,6 +48,7 @@ while True:
         print(f"Error: {str(e)}")
         break
 
+# %% 
 # Release the video capture
 running_cam.capture.release()
 cv2.destroyAllWindows()
