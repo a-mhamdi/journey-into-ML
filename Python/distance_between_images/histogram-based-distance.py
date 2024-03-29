@@ -54,7 +54,7 @@ plt.show()
 # %% Histogram of multiple images
 colors = ('red', 'green', 'blue')
 img1, img2 = load_images('image-1.png', 'image-3.png')
-width, height, _ = img.shape
+width, height, _ = img1.shape
 pas, nbins = 32, 256
 
 # %%
@@ -83,4 +83,19 @@ for i in range(0, 3):
     cosine_sim[colors[i]] = np.dot(data_hist[:, i, 0], data_hist[:, i, 1]) / (np.linalg.norm(data_hist[:, i, 0]) * np.linalg.norm(data_hist[:, i, 1]))
     print(f'{colors[i]}: {cosine_sim[colors[i]]}')
 
-# %%
+# %% Divergence measures
+# Calculate the KL-divergence
+def kl_divergence(p, q): # KL(P || Q)
+    return np.sum(p * np.log(p / q)) if q.all() != 0 else np.inf
+
+# Calculate the JS-divergence
+def js_divergence(p, q): # JS(P || Q)
+    m = 0.5 * (p + q)
+    return 0.5 * kl_divergence(p, m) + 0.5 * kl_divergence(q, m)
+
+# %% Calculate (P || Q) and (Q || P)
+
+p = data_hist[:, 0, 0] / (255 *width)
+q = data_hist[:, 0, 1] / (255 *width)
+
+print(kl_divergence(p, q), js_divergence(p, q))
